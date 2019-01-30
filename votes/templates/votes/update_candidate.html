@@ -1,0 +1,14 @@
+{% extends "votes/base.html" %}
+
+{% block head %}
+	Update Post
+{% endblock head %}
+
+{% block body %}
+	<form method="post">
+		{% csrf_token %}
+   		{{ form.as_p }}
+   		<input type="submit" value="Update">
+	</form>
+<a href="{% url 'index' %}">Return to home</a>
+{% endblock body %}

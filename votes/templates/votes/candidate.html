@@ -1,0 +1,33 @@
+{% extends "votes/base.html" %}
+
+{% block head %}
+	{{ candidate.lastname }}
+{% endblock head %}
+
+{% block body %}
+	<a href="{% url 'index' %}">Home </a>
+	<br>
+	<strong>{{ candidates.lastname }}</strong>
+	<br>
+	{{ candidate.firstname}}
+	<br>
+	{{ candidate.position }}
+	<br>
+	<br>
+	{{ candidate.position }}
+	<br>
+	{{ candidate.platform }}
+	<br>
+	Comments:
+	<ul>
+		{% for comment in post.comment_set.all %}
+			<li> {{ comment }} </li>
+		{% endfor %}
+	</ul>
+	<a href="{% url 'Position-create' post.id %}">Add comment</a>
+	<br>
+	<br>
+
+	<a href="{% url 'post-update' post.id %}">Update post</a>
+
+{% endblock body %}
